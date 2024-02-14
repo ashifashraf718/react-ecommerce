@@ -2,30 +2,45 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { ThreeCircles } from 'react-loader-spinner'
 import Products from '../component/product/Products'
+import { electronicsProduct, jeweleryProduct, menProduct, womenProoduct } from '../api/api'
 
 const Home = () => {
-    const [product,setProduct]=useState([])
+    const [men,setMen]=useState([])
+    const [women,setWomen]=useState([])
+    const [jewelery,setJewelery]=useState([])
+    const [electronic,setElectronic]=useState([])
+    
     const [loading,setLoading]=useState(false)
 
     async function ApiGet(){
         try{
             setLoading(true)
-            let apiData=await axios.get("https://fakestoreapi.com/products/category/jewelery")
-            console.log("***************",apiData.data);
+            let menData=await axios.get(menProduct)
+            let womenData=await axios.get(womenProoduct)
+            let jeweleryData=await axios.get(jeweleryProduct)
+            let electronicsData=await axios.get(electronicsProduct)
+            // console.log("***************",jeweleryData.data);
 
-            if(apiData){
+            if(menData || womenData || jeweleryData || electronics){
                 setLoading(false)
-                setProduct(apiData.data)
+                setMen(menData.data)
+                setWomen(womenData.data)
+                setJewelery(jeweleryData.data)
+                setElectronic(electronicsData.data)
+            
             }
         }catch(err){
             console.log(err);
         }
 
     }
+    
 
     useEffect(()=>{
         ApiGet()
     },[])
+
+    
   return (
     <div>
         {
@@ -33,15 +48,9 @@ const Home = () => {
             <div className='min-h-screen w-full flex justify-center items-center'>
                 <ThreeCircles height={"120"} width={"120"} color="rgb(127,29,29)" visible={true} />
 
-            </div> : <div className='min-h-[80vh] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4   max-w-6xl mx-auto p-3'> 
-                {
-                    product && product.length ? 
-                    product.map((product)=>(
-                        
-                            <Products value={product}/>
-                    )) : null
-                }
-                {/* <Products product={product}/> */}
+            </div> : <div> 
+                            <Products men={men} jewelery={jewelery} women={women} electronic={electronic}/>
+        
 
             </div>
         }
@@ -50,37 +59,3 @@ const Home = () => {
 }
 
 export default Home
-
-
-
-// import React, { useEffect, useState } from 'react'
-// import axios from 'axios'
-// import Products from '../component/product/Products'
-// const home = () => {
-//     const [product, setProduct] = useState([])
-
-//     useEffect(() => {
- 
-//         async function ApiGet() {
-//             try {
-//                 let apiData = await axios.get("https://fakestoreapi.com/products")
-//                 console.log("***************", apiData.data);
-//                 setProduct(apiData.data)
-    
-//             } catch (err) {
-//                 console.log(err);
-//             }
-    
-//         }
-//         ApiGet()
-//     },[])
-
-//     console.log("product",product);
-//     return (
-//         <div>
-//             <Products value={product}/>
-//         </div>
-//     )
-// }
-
-// export default home
