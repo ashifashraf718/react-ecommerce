@@ -13,10 +13,10 @@ const Header = () => {
         <div>
             <ul className='flex list-none items-center space-x-6 text-grey-800 font-semibold'>
                 <Link to={"/"}>
-                    <li className='cursor-pointer'>Home</li>
+                    <li className='cursor-pointer text-gray-800'>Home</li>
                 </Link>
                 <Link to={"cart"}>
-                    <li className='cursor-pointer'>Cart</li>
+                    <li className='cursor-pointer text-gray-800'>Cart</li>
                 </Link>
 
             </ul>

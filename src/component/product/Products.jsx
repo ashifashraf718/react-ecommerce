@@ -12,7 +12,7 @@ const Products = ({ men, women, jewelery, electronic }) => {
 
       {/* <!-- men --> */}
       <div>
-        <h1 className='font-semibold text-2xl mt-2  ml-28 text-grey-800'>Men's clothing</h1>
+        <h1 className='font-semibold text-2xl mt-2  ml-28 text-gray-800'>Men's clothing</h1>
         <div className='min-h-[70vh] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4   max-w-6xl mx-auto p-3'>
           {
             men.map((men) => (
@@ -22,21 +22,21 @@ const Products = ({ men, women, jewelery, electronic }) => {
               <Link to={"singleproduct"}>
                     <img src={men.image} alt={men.title} className='w-full h-full object-cover' />
                 </Link>
-                    <h1 className='w-40 truncate mt-3 text-grey-700 font-bold text-lg'>{men.title}</h1>
+                    <h1 className='w-40 truncate mt-3 text-gray-700 font-bold text-lg'>{men.title}</h1>
                     <div className='flex flex-col items-center justify-center'>
                       <div className='flex items-center justify-around'>
-                        <div className='flex items-center bg-green-700 text-white rounded-md p-0.5'>
-                          <p><span>{men.rating.rate}</span></p>
+                        <div className='flex items-center bg-green-700 text-white  font-semibold rounded-md p-0.5'>
+                          <p ><span>{men.rating.rate}</span></p>
                           <IoStarSharp />
                         </div>
-                        <p className='text-md font-extralight'>{men.rating.count}</p>
+                        <p className='text-md font-light'>{men.rating.count}</p>
                       </div>
-                      <p className='font-semibold text-lg text-grey-600'>${men.price}</p>
+                      <p className='font-semibold text-lg text-gray-600'>${men.price}</p>
                     </div>
                     <div className='flex items-center justify-center w-full mt-2'>
-                      <button onClick={cart.some((item)=>item.id == men.id ) ? ()=>dispatch(removeFromCart(men.id)) : ()=>dispatch(addToCart(men))  } className='bg-red-950 text-white border-2 rounded-lg p-2'>
+                      <button onClick={cart.some((item)=>item.id === men.id ) ? ()=>dispatch(removeFromCart(men.id)) : ()=>dispatch(addToCart(men))  } className='bg-red-950 text-white border-2 rounded-lg p-2'>
                       {
-                        cart.some((item)=>item.id == men.id ) ? "remove from cart" : "add to cart"  
+                        cart.some((item)=>item.id === men.id ) ? "remove from cart" : "add to cart"  
                       }
                         </button>
                     </div>
@@ -51,7 +51,7 @@ const Products = ({ men, women, jewelery, electronic }) => {
 
       {/* <!-- women --> */}
       <div>
-        <h1 className='font-semibold text-2xl mt-2  ml-28 text-grey-800'>Women's clothing</h1>
+        <h1 className='font-semibold text-2xl mt-2  ml-28 text-gray-800'>Women's clothing</h1>
         <div className='min-h-[70vh] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  max-w-6xl mx-auto p-3'>
           {
             women.map((women) => (
@@ -61,19 +61,24 @@ const Products = ({ men, women, jewelery, electronic }) => {
                 <Link to={"singleproduct"}>
                     <img src={women.image} alt={women.title} className='w-full h-full object-cover' />
                 </Link>
-                    <h1 className='w-40 truncate mt-3 text-grey-700 font-bold text-lg'>{women.title}</h1>
+                    <h1 className='w-40 truncate mt-3 text-gray-700 font-bold text-lg'>{women.title}</h1>
                     <div className='flex flex-col items-center justify-center'>
                       <div className='flex items-center justify-around'>
-                        <div className='flex items-center bg-green-700 text-white rounded-md p-0.5'>
+                        <div className='flex items-center font-semibold bg-green-700 text-white rounded-md p-0.5'>
                           <p><span>{women.rating.rate}</span></p>
                           <IoStarSharp />
                         </div>
                         <p className='text-md font-extralight'>{women.rating.count}</p>
                       </div>
-                      <p className='font-semibold text-lg text-grey-600'>${women.price}</p>
+                      <p className='font-semibold text-lg text-gray-600'>${women.price}</p>
                     </div>
                     <div className='flex items-center justify-center w-full mt-2'>
-                      <button  onClick={()=>dispatch(addToCart(women))}  className='bg-red-950 text-white border-2 rounded-lg p-2'>Add to  cart</button>
+                      <button  onClick={cart.some((item)=>item.id === women.id ) ? ()=>dispatch(removeFromCart(women.id)) : ()=>dispatch(addToCart(women))  }  className='bg-red-950 text-white border-2 rounded-lg p-2'>
+                       {
+                        cart.some((item)=>item.id === women.id ) ? "remove from cart" : "add to cart"  
+
+                       }
+                        </button>
                     </div>
 
                   </div>
@@ -87,7 +92,7 @@ const Products = ({ men, women, jewelery, electronic }) => {
 
       {/* <!-- jewelery --> */}
       <div>
-        <h1 className='font-semibold text-2xl mt-5  ml-28 text-grey-800'>Jewelery</h1>
+        <h1 className='font-semibold text-2xl mt-5  ml-28 text-gray-800'>Jewelery</h1>
         <div className='min-h-[70vh] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  max-w-6xl mx-auto p-3'>
           {
             jewelery.map((jewelery) => (
@@ -97,20 +102,24 @@ const Products = ({ men, women, jewelery, electronic }) => {
                 <Link to={"singleproduct"}>
                     <img src={jewelery.image} alt={jewelery.title} className='w-full h-full object-cover' />
                 </Link>
-                    <h1 className='w-40 truncate mt-3 text-grey-700 font-bold text-lg'>{jewelery.title}</h1>
+                    <h1 className='w-40 truncate mt-3 text-gray-700 font-bold text-lg'>{jewelery.title}</h1>
                     <div className='flex flex-col items-center justify-center'>
                       <div className='flex items-center justify-around'>
-                        <div className='flex items-center bg-green-700 text-white rounded-md p-0.5'>
+                        <div className='flex items-center font-semibold bg-green-700 text-white rounded-md p-0.5'>
                           <p><span>{jewelery.rating.rate}</span></p>
                           <IoStarSharp />
                         </div>
                         <p className='text-md font-extralight'>{jewelery.rating.count}</p>
                       </div>
-                      <p className='font-semibold text-lg text-grey-600'>${jewelery.price}</p>
+                      <p className='font-semibold text-lg text-gray-600'>${jewelery.price}</p>
                     </div>
                     <div className='flex items-center justify-center w-full mt-2'>
-                      <button  onClick={()=>dispatch(addToCart(jewelery))}  className='bg-red-950 text-white border-2 rounded-lg p-2'>Add to  cart</button>
-                    </div>
+                    <button  onClick={cart.some((item)=>item.id === jewelery.id ) ? ()=>dispatch(removeFromCart(jewelery.id)) : ()=>dispatch(addToCart(jewelery))  }  className='bg-red-950 text-white border-2 rounded-lg p-2'>
+                       {
+                        cart.some((item)=>item.id === jewelery.id ) ? "remove from cart" : "add to cart"  
+
+                       }</button>
+                </div>
 
                   </div>
               </div>
@@ -124,7 +133,7 @@ const Products = ({ men, women, jewelery, electronic }) => {
 
       {/* <!-- electonic --> */}
       <div>
-        <h1 className='font-semibold text-2xl mt-2  ml-28 text-grey-800'>Electronics</h1>
+        <h1 className='font-semibold text-2xl mt-2  ml-28 text-gray-800'>Electronics</h1>
         <div className='min-h-[70vh] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  max-w-6xl mx-auto p-3'>
           {
             electronic.map((electonic) => (
@@ -134,20 +143,24 @@ const Products = ({ men, women, jewelery, electronic }) => {
                 <Link to={"singleproduct"}>
                     <img src={electonic.image} alt={electonic.title} className='w-full h-full object-cover' />
                 </Link>
-                    <h1 className='w-40 truncate mt-3 text-grey-700 font-bold text-lg'>{electonic.title}</h1>
+                    <h1 className='w-40 truncate mt-3 text-gray-700 font-bold text-lg'>{electonic.title}</h1>
                     <div className='flex flex-col items-center justify-center'>
                       <div className='flex items-center justify-around'>
-                        <div className='flex items-center bg-green-700 text-white rounded-md p-0.5'>
+                        <div className='flex items-center font-semibold bg-green-700 text-white rounded-md p-0.5'>
                           <p><span>{electonic.rating.rate}</span></p>
                           <IoStarSharp />
-                        </div>
+                        </div> 
                         <p className='text-md font-extralight'>{electonic.rating.count}</p>
                       </div>
-                      <p className='font-semibold text-lg text-grey-600'>${electonic.price}</p>
+                      <p className='font-semibold text-lg text-gray-600'>${electonic.price}</p>
                     </div>
                     <div className='flex items-center justify-center w-full mt-2'>
-                      <button  onClick={()=>dispatch(addToCart(electonic))}  className='bg-red-950 text-white border-2 rounded-lg p-2'>Add to  cart</button>
-                    </div>
+                    <button  onClick={cart.some((item)=>item.id === electonic.id ) ? ()=>dispatch(removeFromCart(electonic.id)) : ()=>dispatch(addToCart(electonic))  }  className='bg-red-950 text-white border-2 rounded-lg p-2'>
+                       {
+                        cart.some((item)=>item.id === electonic.id ) ? "remove from cart" : "add to cart"  
+
+                       }</button>
+                </div>
 
                   </div>
               </div>

@@ -18,15 +18,15 @@ const Home = () => {
             let menData=await axios.get(menProduct)
             let womenData=await axios.get(womenProoduct)
             let jeweleryData=await axios.get(jeweleryProduct)
-            let electronicsData=await axios.get(electronicsProduct)
+            let electronicData=await axios.get(electronicsProduct)
             // console.log("***************",jeweleryData.data);
 
-            if(menData || womenData || jeweleryData || electronics){
+            if(menData || womenData || jeweleryData || electronic){
                 setLoading(false)
                 setMen(menData.data)
                 setWomen(womenData.data)
                 setJewelery(jeweleryData.data)
-                setElectronic(electronicsData.data)
+                setElectronic(electronicData.data)
             
             }
         }catch(err){
