@@ -36,7 +36,7 @@ const Cart = () => {
               <span className='text-gray-800 font-bold'>Total Amount</span>
               <span className='text-gray-800 font-semibold'>: ${totalCart}</span>
             </p>
-            <Link>
+            <Link to={"/buynow"}>
             <button className='bg-red-950 text-white border-2 rounded-lg p-2'> Buy Now</button>
 
             </Link>

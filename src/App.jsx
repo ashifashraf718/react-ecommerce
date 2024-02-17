@@ -3,6 +3,7 @@ import Home from "./pages/home"
 import Cart from "./pages/Cart"
 import Header from "./component/header/Header"
 import Singleproduct from "./component/Singleproduct/Singleproduct"
+import BuyNow from "./component/buyNow/BuyNow"
 
 function App() {
  
@@ -12,7 +13,8 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="cart" element={<Cart />} />
-      <Route path="singleproduct/:id" element={<Singleproduct/>}/>
+      <Route path="buynow" element={<BuyNow />} />
+      <Route path="singleproduct/:id" element={<Singleproduct />}/>
     </Routes>
     </>
   )

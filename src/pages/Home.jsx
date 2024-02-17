@@ -57,5 +57,5 @@ const Home = () => {
     </div>
   )
 }
-
+export const {electronic,jewelery,men,women}=value
 export default Home

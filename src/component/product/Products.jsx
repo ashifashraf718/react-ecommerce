@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
-import { IoStarSharp, IoThumbsDown } from "react-icons/io5";
+import { IoStarSharp } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../../store/cartSlice';
 const Products = ({ men, women, jewelery, electronic }) => {
