@@ -1,9 +1,9 @@
 import React from 'react'
 import { TiTick } from "react-icons/ti";
 import { Link } from 'react-router-dom';
+import { removeAllCart } from '../../store/cartSlice';
 
 const BuyNow = () => {
-  console.log("hello");
   return (
     <div className='min-h-[80vh] flex flex-col items-center justify-center'>
 
@@ -15,7 +15,7 @@ const BuyNow = () => {
         <p>we'll be in touch shortly!</p>
       </div>
       <Link to={"/"}>
-      <button className='bg-red-950 text-white border-2 rounded-lg p-2 mt-2'>Back To Home</button>
+      <button onClick={removeAllCart} className='bg-red-950 text-white border-2 rounded-lg p-2 mt-2'>Back To Home</button>
 
       </Link>
     </div>

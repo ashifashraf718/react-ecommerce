@@ -19,7 +19,7 @@ const Products = ({ men, women, jewelery, electronic }) => {
 
                   <div key={men.id} className='group flex flex-col items-center border-2 border-red-800 gap-3 p-4 h-[360px] mt-2 ml-5 rounded-xl'>
                   <div className='h-[180px]'>
-              <Link to={"singleproduct"}>
+              <Link to={`singleproduct/${men.id}`}>
                     <img src={men.image} alt={men.title} className='w-full h-full object-cover' />
                 </Link>
                     <h1 className='w-40 truncate mt-3 text-gray-700 font-bold text-lg'>{men.title}</h1>
@@ -58,7 +58,7 @@ const Products = ({ men, women, jewelery, electronic }) => {
 
               <div key={women.id} className='group flex flex-col items-center border-2 border-red-800 gap-3 p-4 h-[360px] mt-2 ml-5 rounded-xl'>
                   <div className='h-[180px]'>
-                <Link to={"singleproduct"}>
+                <Link to={`singleproduct/${women.id}`}>
                     <img src={women.image} alt={women.title} className='w-full h-full object-cover' />
                 </Link>
                     <h1 className='w-40 truncate mt-3 text-gray-700 font-bold text-lg'>{women.title}</h1>
@@ -99,7 +99,7 @@ const Products = ({ men, women, jewelery, electronic }) => {
 
               <div key={jewelery.id} className='group flex flex-col items-center border-2 border-red-800 gap-3 p-4 h-[360px] mt-2 ml-5 rounded-xl'>
                   <div className='h-[180px]'>
-                <Link to={"singleproduct"}>
+                <Link to={`singleproduct/${jewelery.id}`}>
                     <img src={jewelery.image} alt={jewelery.title} className='w-full h-full object-cover' />
                 </Link>
                     <h1 className='w-40 truncate mt-3 text-gray-700 font-bold text-lg'>{jewelery.title}</h1>
@@ -140,7 +140,7 @@ const Products = ({ men, women, jewelery, electronic }) => {
 
               <div key={electonic.id} className='group flex flex-col items-center border-2 border-red-800 gap-3 p-4 h-[360px] mt-2 ml-5 rounded-xl'>
                   <div className='h-[180px]'>
-                <Link to={"singleproduct"}>
+                <Link to={`singleproduct/${electonic.id}`}>
                     <img src={electonic.image} alt={electonic.title} className='w-full h-full object-cover' />
                 </Link>
                     <h1 className='w-40 truncate mt-3 text-gray-700 font-bold text-lg'>{electonic.title}</h1>

@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CartPoster from '../component/cartPoster/CartPoster';
+import { removeAllCart } from '../store/cartSlice';
+import Header from '../component/header/Header';
 
 
 
 const Cart = () => {
   const [totalCart,setTotalCart]=useState(0)
+  const dispatch=useDispatch()
 
   const state=useSelector((state)=>state.cart.cartData)
   
   useEffect(()=>{
+    
     setTotalCart(state.reduce((acc,curr)=>acc + curr.price, 0))
+
   },[state])
   console.log("state:",state);
   console.log("total: ",totalCart);
+  function display(){
+    dispatch(removeAllCart())
+  }
   return (
     <div >
+      <Header/>
       {
       state && state.length ?
       <div className='flex'> 
@@ -37,9 +46,10 @@ const Cart = () => {
               <span className='text-gray-800 font-semibold'>: ${totalCart}</span>
             </p>
             <Link to={"/buynow"}>
-            <button className='bg-red-950 text-white border-2 rounded-lg p-2'> Buy Now</button>
 
-            </Link>
+            <button onClick= {display} className='bg-red-950 text-white border-2 rounded-lg p-2'> Buy Now</button>
+
+            </Link> 
           </div>
           </div>
           </div>

@@ -15,7 +15,7 @@ const Header = () => {
                 <Link to={"/"}>
                     <li className='cursor-pointer text-gray-800'>Home</li>
                 </Link>
-                <Link to={"cart"}>
+                <Link to={"/cart"}>
                     <li className='cursor-pointer text-gray-800'>Cart</li>
                 </Link>
 

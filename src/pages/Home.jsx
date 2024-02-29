@@ -3,15 +3,18 @@ import axios from "axios"
 import { ThreeCircles } from 'react-loader-spinner'
 import Products from '../component/product/Products'
 import { electronicsProduct, jeweleryProduct, menProduct, womenProoduct } from '../api/api'
+import { useDispatch } from 'react-redux'
+import { addProduct } from '../store/productSlice'
+import Header from '../component/header/Header'
 
 const Home = () => {
     const [men,setMen]=useState([])
     const [women,setWomen]=useState([])
     const [jewelery,setJewelery]=useState([])
     const [electronic,setElectronic]=useState([])
-    
+    const [status,setStatus]=useState(false)
     const [loading,setLoading]=useState(false)
-
+    const dispatch=useDispatch()
     async function ApiGet(){
         try{
             setLoading(true)
@@ -21,28 +24,37 @@ const Home = () => {
             let electronicData=await axios.get(electronicsProduct)
             // console.log("***************",jeweleryData.data);
 
-            if(menData || womenData || jeweleryData || electronic){
+
+            if(menData && womenData && jeweleryData && electronic){
+                setStatus(true)
                 setLoading(false)
                 setMen(menData.data)
                 setWomen(womenData.data)
                 setJewelery(jeweleryData.data)
                 setElectronic(electronicData.data)
             
+                dispatch(addProduct([men,women,jewelery,electronic]))
             }
+            // if(men.length && women.length && jewelery.length && electronic.lengt){
+            // }
         }catch(err){
             console.log(err);
         }
 
     }
+
+    
     
 
     useEffect(()=>{
+        
         ApiGet()
-    },[])
+    },[status])
 
     
   return (
-    <div>
+      <div>
+        <Header/>
         {
             loading ? 
             <div className='min-h-screen w-full flex justify-center items-center'>
@@ -57,5 +69,4 @@ const Home = () => {
     </div>
   )
 }
-export const {electronic,jewelery,men,women}=value
-export default Home
+  export default Home
