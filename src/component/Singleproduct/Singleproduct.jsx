@@ -58,15 +58,16 @@ const Singleproduct = () => {
                   : "add to cart"}
               </button>
               <Link to={"/cart"}>
-
-              <button className="bg-red-950 text-white border-2  rounded-lg p-2">Go To Cart</button>
+                <button className="bg-red-950 text-white border-2  rounded-lg p-2">
+                  Go To Cart
+                </button>
               </Link>
             </div>
           </div>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Singleproduct;
