@@ -21,6 +21,9 @@ const Header = () => {
             <Link to={"/cart"}>
               <li className="cursor-pointer text-gray-800">Cart</li>
             </Link>
+            {/* <Link to={"/delivery"}>
+              <button>delivery</button>
+            </Link> */}
           </ul>
         </div>
       </nav>

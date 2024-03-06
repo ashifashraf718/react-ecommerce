@@ -7,25 +7,25 @@ import FilterProduct from "../filter/FilterProduct";
 const Products = ({ men, women, jewelery, electronic }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cartData);
-  const allData = useSelector((state) => state.product.productData[1]);
-console.log("allData",allData);
-  const mapData = allData.map((innerArr) => innerArr);
-  console.log("mapped :",mapData);
-  const merge = mapData.flat(Infinity);
-  console.log("merged......",merge);
+//   const allData = useSelector((state) => state.product.productData[1]);
+// console.log("allData",allData);
+//   const mapData = allData.map((innerArr) => innerArr);
+//   console.log("mapped :",mapData);
+//   const merge = mapData.flat(Infinity);
+//   console.log("merged......",merge);
   
 
-  function filteredData() {
-    const data=merge.filter((li)=>{
-      console.log("li...",li);
-    })
-  }
+//   function filteredData() {
+//     const data=merge.filter((li)=>{
+//       console.log("li...",li);
+//     })
+//   }
 
 
   return (
 
     <div>
-      <FilterProduct/>
+      {/* <FilterProduct/> */}
       {/* <!-- men --> */}
       <div>
         <h1 className="font-semibold text-2xl mt-2  ml-28 text-gray-800">

@@ -9,7 +9,7 @@ const CartPoster = (cartItem) => {
 
   return (
     <div>
-      {product.map((item) => (
+      {product && product.map((item) => (
         <div
           className="flex items-center p-5 justify-between bg-red-500 mt-2 mb-2 rounded-xl"
           key={item.id}
